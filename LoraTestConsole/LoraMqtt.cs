@@ -19,28 +19,21 @@ namespace LoraTestConsole
         public void ReadLigthSensor()
         {
 
-            MQTTClient mQTTClient = new MQTTClient("ptnetsuite.a2asmartcity.io", 1883);
+            //MQTTClient mQTTClient = new MQTTClient("ptnetsuite.a2asmartcity.io",8883);
+            //mQTTClient.Connect("reti::1");
+            //mQTTClient.Subscriptions.Add(new Subscription($"/sub/v1/users/{user}/apps/{appid}/devices/{deveui}/uplink/{lightPort}"));
+            //mQTTClient.Connected += MQTTClient_Connected;
+            //mQTTClient.MessageReceived += MQTTClient_MessageReceived;
 
-            mQTTClient.Connect("reti::1", user, "r3t1sp4",);
+            //secure connection
+            MqttClient mqttClient = new MqttClient("ptnetsuite.a2asmartcity.io",8883,true,new System.Security.Cryptography.X509Certificates.X509Certificate("./loranetsuite.crt"),null,MqttSslProtocols.TLSv1_2);
+         
+                    
+            mqttClient.Connect("reti::1",user, "r3t1sp4");
 
-            mQTTClient.Subscriptions.Add(new Subscription($"/sub/v1/users/{user}/apps/{appid}/devices/{deveui}/uplink/{lightPort}"));
+            mqttClient.MqttMsgPublishReceived += MqttClient_MqttMsgPublishReceived;
 
-          
-            mQTTClient.Connected += MQTTClient_Connected;
-            mQTTClient.MessageReceived += MQTTClient_MessageReceived;
-
-
-           
-            ////unsecure connection
-            //MqttClient mqttClient = new MqttClient("ptnetsuite.a2asmartcity.io");
-
-          
-            
-            //mqttClient.Connect("reti::1",user, "r3t1sp4");
-
-            //mqttClient.MqttMsgPublishReceived += MqttClient_MqttMsgPublishReceived;
-
-            //mqttClient.Subscribe(new string[] { $"/sub/v1/users/{user}/apps/{appid}/devices/{deveui}/uplink/{lightPort}" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+            mqttClient.Subscribe(new string[] { $"/sub/v1/users/{user}/apps/{appid}/devices/{deveui}/uplink/{lightPort}" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
 
         }
 
@@ -57,7 +50,8 @@ namespace LoraTestConsole
 
         private void MqttClient_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            Console.WriteLine(e.Message.ToString());
+            string message = System.Text.Encoding.Default.GetString(e.Message);
+            Console.WriteLine($"mex received: {message} - topic: {e.Topic}");
         }
     }
 }

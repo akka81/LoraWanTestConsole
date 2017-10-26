@@ -6,6 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="loranetsuite.crt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="loranetsuite.crt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="M2MqttDotnetCore" Version="1.0.7" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="OpenNETCF.MQTT" Version="1.0.17253" />
