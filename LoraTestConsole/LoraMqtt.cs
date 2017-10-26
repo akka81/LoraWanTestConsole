@@ -37,16 +37,16 @@ namespace LoraTestConsole
 
         }
 
-        private void MQTTClient_Connected(object sender, EventArgs e)
-        {
-            Console.WriteLine("connected!");
-        }
+        //private void MQTTClient_Connected(object sender, EventArgs e)
+        //{
+        //    Console.WriteLine("connected!");
+        //}
 
-        private void MQTTClient_MessageReceived(string topic, QoS qos, byte[] payload)
-        {
-            Console.WriteLine(topic);
-            Console.WriteLine(payload.ToString());
-        }
+        //private void MQTTClient_MessageReceived(string topic, QoS qos, byte[] payload)
+        //{
+        //    Console.WriteLine(topic);
+        //    Console.WriteLine(payload.ToString());
+        //}
 
         private void MqttClient_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
