@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoraTestConsole", "LoraTestConsole\LoraTestConsole.csproj", "{394DBDFE-1E2D-45CB-8170-97862D71AE83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoraTestConsole", "LoraTestConsole\LoraTestConsole.csproj", "{394DBDFE-1E2D-45CB-8170-97862D71AE83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reti-LoRa-App", "..\Reti-LoRa-Application\Reti-LoRa-App\Reti-LoRa-App.csproj", "{2462916D-D2E5-4688-9B81-9271C0201214}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{394DBDFE-1E2D-45CB-8170-97862D71AE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{394DBDFE-1E2D-45CB-8170-97862D71AE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{394DBDFE-1E2D-45CB-8170-97862D71AE83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2462916D-D2E5-4688-9B81-9271C0201214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2462916D-D2E5-4688-9B81-9271C0201214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2462916D-D2E5-4688-9B81-9271C0201214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2462916D-D2E5-4688-9B81-9271C0201214}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
